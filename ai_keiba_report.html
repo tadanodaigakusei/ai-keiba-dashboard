@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>AI Keiba Report</title>
+<style>
+                body { font-family: "Helvetica Neue", Arial, sans-serif; background-color: #f4f4f9; color: #333; padding: 20px; padding-top: 80px; }
+                .search-container { position: fixed; top: 0; left: 0; width: 100%; background: #343a40; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+                .search-box { width: 300px; padding: 10px; border-radius: 5px; border: none; font-size: 16px; outline: none; }
+                .search-label { color: white; margin-right: 10px; font-weight: bold; }
+                .race-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 30px; animation: fadeIn 0.5s; }
+                h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; color: #0056b3; margin-top: 0; }
+                .meta { color: #666; font-size: 0.9em; margin-bottom: 15px; }
+                table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                th { background-color: #007bff; color: white; padding: 10px; text-align: left; }
+                td { padding: 10px; border-bottom: 1px solid #ddd; }
+                .status-fire { background-color: #ffebee; color: #c62828; font-weight: bold; border-left: 5px solid #d32f2f; }
+                .status-warn { background-color: #fff3e0; color: #ef6c00; font-weight: bold; border-left: 5px solid #f57c00; }
+                .status-safe { background-color: #e3f2fd; color: #1565c0; border-left: 5px solid #1976d2; }
+                .status-wait { color: #999; }
+                @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            </style>
+<script>
+                function filterRaces() {
+                    var input = document.getElementById('raceInput').value.toLowerCase();
+                    var cards = document.getElementsByClassName('race-card');
+                    for (var i = 0; i < cards.length; i++) {
+                        var raceId = cards[i].getAttribute('data-race-id');
+                        var text = cards[i].innerText.toLowerCase();
+                        if (raceId.includes(input) || text.includes(input)) { cards[i].style.display = ""; } else { cards[i].style.display = "none"; }
+                    }
+                }
+            </script>
+</head>
+<body>
+<div class="search-container">
+<span class="search-label">🔍 Race Search:</span>
+<input class="search-box" id="raceInput" onkeyup="filterRaces()" placeholder="ID or Race No (e.g. 11, 2024...)" type="text"/>
+</div>
+<div style="text-align:center; margin-bottom:20px; color:#666;">
+<h1>🏇 AI Keiba Report</h1>
+</div>
+<div id="race-cards-container"><div class="race-card" data-race-id="202608020611"><h2>📍 11R (ID: 202608020611) <span style="font-size:0.6em; float:right;">Updated: 02/16 15:28</span></h2><div class="meta">🏟️ 京都 | 🌤️ 2200m / 曇</div><table><thead><tr><th>Rank</th><th>No.</th><th>Name</th><th>AI Score</th><th>Odds</th><th>Status</th><th>Reason (AI)</th></tr></thead><tbody><tr class="status-warn"><td>1</td><td>1</td><td><b>ヘデントール</b></td><td>2.50</td><td>3.8</td><td>⚠️ 本命</td><td style="font-size:0.9em; color:#555;">騎手の手腕が活きる条件 (＋直近重視タイム指数)</td></tr><tr class="status-safe"><td>4</td><td>4</td><td><b>エコロディノス</b></td><td>0.89</td><td>9.0</td><td>△ 抑え</td><td style="font-size:0.9em; color:#555;">近走の勢いはメンバー屈指 (＋前走着順順位)</td></tr><tr class=""><td>6</td><td>6</td><td><b>エリキング</b></td><td>0.58</td><td>1.8</td><td>-</td><td style="font-size:0.9em; color:#555;">成績の良化トレンドを評価 (＋前走着順順位)</td></tr><tr class=""><td>10</td><td>10</td><td><b>リビアングラス</b></td><td>0.28</td><td>43.8</td><td>-</td><td style="font-size:0.9em; color:#555;">成績の良化トレンドを評価 (＋同距離複勝率)</td></tr><tr class=""><td>8</td><td>8</td><td><b>シェイクユアハート</b></td><td>0.06</td><td>15.2</td><td>-</td><td style="font-size:0.9em; color:#555;">成績の良化トレンドを評価 (＋前走着順順位)</td></tr><tr class=""><td>3</td><td>3</td><td><b>サフィラ</b></td><td>-0.19</td><td>27.9</td><td>-</td><td style="font-size:0.9em; color:#555;">成績の良化トレンドを評価 (＋前走上り3F)</td></tr><tr class=""><td>2</td><td>2</td><td><b>ヨーホーレイク</b></td><td>-0.23</td><td>9.7</td><td>-</td><td style="font-size:0.9em; color:#555;">この距離なら信頼度抜群 (＋同馬場複勝率)</td></tr><tr class=""><td>5</td><td>5</td><td><b>バビット</b></td><td>-0.27</td><td>80.1</td><td>-</td><td style="font-size:0.9em; color:#555;">得意距離に戻っての変わり身に期待 (＋騎手強化度)</td></tr><tr class=""><td>11</td><td>11</td><td><b>マイネルクリソーラ</b></td><td>-0.62</td><td>82.6</td><td>-</td><td style="font-size:0.9em; color:#555;">渋った馬場/良馬場での実績十分 (＋騎手強化度)</td></tr><tr class=""><td>9</td><td>9</td><td><b>ドクタードリトル</b></td><td>-0.83</td><td>145.8</td><td>-</td><td style="font-size:0.9em; color:#555;">渋った馬場/良馬場での実績十分 (＋騎手強化度)</td></tr><tr class=""><td>7</td><td>7</td><td><b>メイショウブレゲ</b></td><td>-1.05</td><td>177.8</td><td>-</td><td style="font-size:0.9em; color:#555;">天候と馬場状態が味方する (＋体重)</td></tr><tr class=""><td>12</td><td>12</td><td><b>ジューンテイク</b></td><td>-1.10</td><td>15.9</td><td>-</td><td style="font-size:0.9em; color:#555;">この距離なら信頼度抜群 (＋同馬場複勝率)</td></tr></tbody></table><div class="trifecta-box"><strong>🎯 三連複推奨 フォーメーション:</strong> 軸【1】 - 相手[4, 6] - 紐[3, 4, 6, 8, 10] (計 7点)</div><div class="trifecta-box" style="border-left-color: #ff9800; background: #fff3e0;"><strong>👑 三連単推奨 1・2着固定:</strong> 1着固定【1】 → 2着固定【4】 → 3着[2, 3, 6, 8, 10] (計 5点)</div></div>
+</div>
+</body>
+</html>
